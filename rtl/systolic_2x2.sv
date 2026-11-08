@@ -118,3 +118,5 @@ mac_pe pe11(
 );
 
 endmodule
+
+`default_nettype wire
