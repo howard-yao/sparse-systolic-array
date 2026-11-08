@@ -275,6 +275,32 @@ initial begin
     run_gemm(A, B, 0);
     run_gemm(A, B, 1);
 
+    // Randomized Test
+
+    for(int test_id = 0; test_id<100; test_id++) begin
+
+        for(int r = 0; r < 2; r++) begin
+            for(int c = 0; c < 2; c++) begin
+                if($urandom_range(0, 3) == 0) begin
+                    A[r][c] = 0;
+                end
+                else begin
+                    A[r][c] = 8'($urandom);
+                end
+
+                if($urandom_range(0, 3) == 0) begin
+                    B[r][c] = 0;
+                end
+                else begin
+                    B[r][c] = 8'($urandom);
+                end
+            end
+        end
+
+        run_gemm(A, B, 0);
+        run_gemm(A, B, 1);
+    end
+
     $display("ALL TESTS PASSED!");
 
     $finish;
