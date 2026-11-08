@@ -45,9 +45,11 @@ module tb_mac_pe;
         .acc_out(acc_sparse)
     );
 
+// Waveform dumping for debugging purposes with +trace flag
     initial begin
         if ($test$plusargs("trace")) begin
             $dumpfile("build/pe_wave.vcd");
+            // Dump all signals in the testbench hierarchy recursively(0).
             $dumpvars(0, tb_mac_pe);
         end
     end
@@ -87,6 +89,7 @@ module tb_mac_pe;
             if (clear_i) begin
                 expected_acc = 0;
             end else if (step_i && av_i && bv_i) begin
+                // Explicitly convert 8 bits operands into 32 bits during accumulation.
                 expected_acc = expected_acc + int'(a_i) * int'(b_i);
             end
         end
