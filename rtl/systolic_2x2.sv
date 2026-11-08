@@ -49,4 +49,72 @@ mac_pe pe00(
     .acc_out(acc_out[0][0])
 );
 
+mac_pe pe01(
+    .clk(clk),
+    .rst(rst),
+    .step(step),
+    .clear_acc(clear_acc),
+    .sparse_en(sparse_en),
+
+    .a_in(a_00_to_01),
+    .b_in(b_top[1]),
+
+    .a_valid_in(a_valid_00_to_01),
+    .b_valid_in(b_valid_top[1]),
+
+    // Edge, we can leave a unconnected
+    .a_out(),
+    .b_out(b_01_to_11),
+
+    .a_valid_out(),
+    .b_valid_out(b_valid_01_to_11),
+
+    .acc_out(acc_out[0][1])
+);
+
+mac_pe pe10(
+    .clk(clk),
+    .rst(rst),
+    .step(step),
+    .clear_acc(clear_acc),
+    .sparse_en(sparse_en),
+
+    .a_in(a_left[1]),
+    .b_in(b_00_to_10),
+
+    .a_valid_in(a_valid_left[1]),
+    .b_valid_in(b_valid_00_to_10),
+
+    .a_out(a_10_to_11),
+    // b out unconnected
+    .b_out(),
+
+    .a_valid_out(a_valid_10_to_11),
+    .b_valid_out(),
+
+    .acc_out(acc_out[1][0])
+);
+
+mac_pe pe11(
+    .clk(clk),
+    .rst(rst),
+    .step(step),
+    .clear_acc(clear_acc),
+    .sparse_en(sparse_en),
+
+    .a_in(a_10_to_11),
+    .b_in(b_01_to_11),
+
+    .a_valid_in(a_valid_10_to_11),
+    .b_valid_in(b_valid_01_to_11),
+
+    .a_out(),
+    .b_out(),
+
+    .a_valid_out(),
+    .b_valid_out(),
+
+    .acc_out(acc_out[1][1])
+);
+
 endmodule
