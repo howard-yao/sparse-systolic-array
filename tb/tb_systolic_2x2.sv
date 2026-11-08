@@ -25,6 +25,72 @@ systolic_2x2 dut(
 );
 
 //Reset:
+typedef logic signed [7:0] matrix_t [2][2];
+matrix_t A, B;
+
+task automatic run_gemm(
+    input matrix_t mat_a,
+    input matrix_t mat_b,
+    input logic sparse_mode
+);
+    int signed expected;
+
+    @(negedge clk);
+    rst = 1;
+    step = 0;
+    clear_acc = 0;
+    sparse_en = sparse_mode;
+
+    @(posedge clk);
+
+    @(negedge clk);
+        step = 1;
+        rst = 0;
+
+    for(int t = 0; t < 4; t++) begin
+
+        for(int r = 0; r < 2; r++) begin
+            if(t>=r && t-r<2) begin
+                a_left[r] = mat_a[r][t-r];
+                a_valid_left[r] = 1;
+            end
+            else begin
+                a_left[r] = '0;
+                a_valid_left[r] = 0;
+            end
+
+            if(t>=r && t-r<2) begin
+                b_top[r] = mat_b[t-r][r];
+                b_valid_top[r] = 1;
+            end
+            else begin
+                b_top[r] = '0;
+                b_valid_top[r] = 0;
+            end
+        end
+
+        @(posedge clk);
+        @(negedge clk);
+
+        // Reference model
+        for(int r = 0; r < 2; r++) begin
+            for(int c = 0; c < 2; c++) begin
+                expected = 0;
+                for(int k = 0; k < 2; k++) begin
+                    if(r+c+k<=t) begin
+                        expected += mat_a[r][k] * mat_b[k][c];
+                    end
+                end
+
+                if(expected !== acc_out[r][c]) begin
+                    $fatal(1, "Step %d PE [%d] [%d]: expected %d got %d", t, r, c, expected, acc_out[r][c]);
+                end
+            end
+        end
+    end
+
+    $display("GEMM passed! With sparse mode:%d", sparse_mode);
+endtask
 
 initial begin
     // iterate over the index
@@ -105,7 +171,34 @@ initial begin
 
     $display("Step 2 passed!");
 
+    // Stall the entire systolic array
+    step = 0;
+
+    a_left[0] = 9;
+    a_left[1] = 11;
+    b_top[0] = 13;
+    b_top[1] = 17;
+
+    a_valid_left[0] = 1;
+    a_valid_left[1] = 1;
+    b_valid_top[0] = 1;
+    b_valid_top[1] = 1;
+
+    @(posedge clk);
+    @(negedge clk);
+
+    if (acc_out[0][0] !== 19 ||
+    acc_out[0][1] !== 6  ||
+    acc_out[1][0] !== 15 ||
+    acc_out[1][1] !== 0) begin
+
+    $fatal(1, "Global stall failed: accumulator changed!");
+    end
+
+    $display("Global stall passed!");
+
     // Step 3: Continue matrix multiplication
+    step = 1;
     a_left[0] = 0;
     a_valid_left[0] = 0;
 
@@ -165,6 +258,24 @@ initial begin
     end
 
     $display("Step 4 passed! Full 2x2 GEMM completed.");
+
+    A = '{'{1, 2}, '{3, 4}};
+    B = '{'{5, 6}, '{7, 8}};
+
+    run_gemm(A, B, 0);
+
+    A = '{'{1, 0}, '{3, 4}};
+    B = '{'{5, 6}, '{7, 0}};
+
+    run_gemm(A, B, 1);
+
+    A = '{'{-1, 2}, '{3, -4}};
+    B = '{'{5, -6}, '{-7, 8}};
+
+    run_gemm(A, B, 0);
+    run_gemm(A, B, 1);
+
+    $display("ALL TESTS PASSED!");
 
     $finish;
 
