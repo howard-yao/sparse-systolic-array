@@ -4,4 +4,5 @@ package systolic_pkg;
 
     `include "gemm_item.sv"
     `include "gemm_sequence.sv"
+    `include "gemm_driver.sv"
 endpackage
