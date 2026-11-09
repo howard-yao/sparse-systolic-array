@@ -1,12 +1,12 @@
 class gemm_sequence extends uvm_sequence #(gemm_item);
 
-    `uvm_object_utils(gemm_sequence);
+    `uvm_object_utils(gemm_sequence)
 
     function new(string name = "gemm_sequence");
         super.new(name);
     endfunction
 
-    task body()
+    task body();
         gemm_item req;
 
         repeat (100) begin
