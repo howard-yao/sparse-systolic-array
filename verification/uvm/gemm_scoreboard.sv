@@ -15,6 +15,10 @@ class gemm_scoreboard extends uvm_scoreboard;
 
     logic signed [31:0] ref_acc [2][2];
 
+    int unsigned samples_checked = 0;
+    int unsigned pe_checks = 0;
+    int unsigned mismatches = 0;
+
     function new(string name = "gemm_scoreboard", uvm_component parent = null);
         super.new(name, parent);
         analysis_export = new("analysis_export", this);
@@ -32,10 +36,12 @@ class gemm_scoreboard extends uvm_scoreboard;
         if(sample.rst) begin
             initialized = 1;
         end
-        
+
         if (!initialized) begin
             return;
         end
+
+        samples_checked++;
 
         if(sample.rst) begin
             for (int r = 0; r < 2; r++) begin
@@ -108,10 +114,26 @@ class gemm_scoreboard extends uvm_scoreboard;
 
         for(int r = 0; r < 2; r++) begin
             for(int c = 0; c < 2; c++) begin
+
+                pe_checks++;
                 if(ref_acc[r][c] !== sample.acc_out[r][c]) begin
+                    mismatches++;
                     `uvm_error("MISMATCH", $sformatf("PE[%d][%d]: expected = %d, actual = %d", r, c, ref_acc[r][c], sample.acc_out[r][c]))
                 end
             end
         end
+    endfunction
+
+    function void report_phase(uvm_phase phase);
+        super.report_phase(phase);
+
+        `uvm_info("GEMM_SUMMARY",
+            $sformatf(
+                "Samples=%0d, PE checks=%0d, mismatches=%0d",
+                samples_checked, pe_checks, mismatches
+            ), UVM_NONE)
+
+        if (pe_checks == 0)
+            `uvm_error("NO_CHECKS", "Scoreboard performed no checks")
     endfunction
 endclass
