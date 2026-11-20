@@ -1,0 +1,306 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 560" width="560" height="560" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace">
+<style>
+:root{--bg:#ffffff;--fg:#1f2328;--mut:#8b949e;--pe:#f6f8fa;--bd:#d0d7de;--a:#d4741a;--b:#2f81f7;--on:#1a7f37;--onbg:#dafbe1;--off:#eaeef2}
+@media (prefers-color-scheme:dark){:root{--bg:#0d1117;--fg:#e6edf3;--mut:#7d8590;--pe:#161b22;--bd:#30363d;--a:#f0883e;--b:#58a6ff;--on:#3fb950;--onbg:#12351f;--off:#21262d}}
+.bg{fill:var(--bg)} .t{fill:var(--fg)} .m{fill:var(--mut)} .pe{fill:var(--pe);stroke:var(--bd);stroke-width:1.5}
+.on{fill:var(--onbg);stroke:var(--on);stroke-width:2.5} .off{fill:var(--off);stroke:var(--mut);stroke-width:1.5;stroke-dasharray:4 3}
+.av{fill:var(--a);font-weight:700} .bv{fill:var(--b);font-weight:700} .acc{fill:var(--fg);font-weight:700}
+.ln{stroke:var(--bd);stroke-width:1.5} .f{opacity:0}
+@keyframes k0{0.000%,10.270%{opacity:1}10.280%,100%{opacity:0}} .f0{animation:k0 10.700000000000001s infinite}
+@keyframes k1{0%,10.270%{opacity:0}10.280%,20.551%{opacity:1}20.561%,100%{opacity:0}} .f1{animation:k1 10.700000000000001s infinite}
+@keyframes k2{0%,20.551%{opacity:0}20.561%,30.831%{opacity:1}30.841%,100%{opacity:0}} .f2{animation:k2 10.700000000000001s infinite}
+@keyframes k3{0%,30.831%{opacity:0}30.841%,41.111%{opacity:1}41.121%,100%{opacity:0}} .f3{animation:k3 10.700000000000001s infinite}
+@keyframes k4{0%,41.111%{opacity:0}41.121%,51.392%{opacity:1}51.402%,100%{opacity:0}} .f4{animation:k4 10.700000000000001s infinite}
+@keyframes k5{0%,51.392%{opacity:0}51.402%,61.672%{opacity:1}61.682%,100%{opacity:0}} .f5{animation:k5 10.700000000000001s infinite}
+@keyframes k6{0%,61.672%{opacity:0}61.682%,71.953%{opacity:1}71.963%,100%{opacity:0}} .f6{animation:k6 10.700000000000001s infinite}
+@keyframes k7{0%,71.953%{opacity:0}71.963%,99.990%{opacity:1}100.000%,100%{opacity:0}} .f7{animation:k7 10.700000000000001s infinite}
+</style>
+<rect class="bg" width="560" height="560" rx="12"/>
+<text class="t" x="280.0" y="34" text-anchor="middle" font-size="18" font-weight="700">Output-stationary systolic array: C = A × B</text>
+<text class="m" x="280.0" y="56" text-anchor="middle" font-size="12">A flows right, B flows down, each PE keeps its own partial sum</text>
+<line class="ln" x1="294" y1="232.0" x2="320" y2="232.0"/>
+<line class="ln" x1="262.0" y1="264" x2="262.0" y2="290"/>
+<line class="ln" x1="384" y1="232.0" x2="410" y2="232.0"/>
+<line class="ln" x1="352.0" y1="264" x2="352.0" y2="290"/>
+<line class="ln" x1="442.0" y1="264" x2="442.0" y2="290"/>
+<line class="ln" x1="294" y1="322.0" x2="320" y2="322.0"/>
+<line class="ln" x1="262.0" y1="354" x2="262.0" y2="380"/>
+<line class="ln" x1="384" y1="322.0" x2="410" y2="322.0"/>
+<line class="ln" x1="352.0" y1="354" x2="352.0" y2="380"/>
+<line class="ln" x1="442.0" y1="354" x2="442.0" y2="380"/>
+<line class="ln" x1="294" y1="412.0" x2="320" y2="412.0"/>
+<line class="ln" x1="384" y1="412.0" x2="410" y2="412.0"/>
+<text class="av" x="40" y="328.0" font-size="16">A →</text>
+<text class="bv" x="352.0" y="86" text-anchor="middle" font-size="16">B ↓</text>
+<g class="f f0">
+<text class="t" x="280.0" y="500" text-anchor="middle" font-size="14">cycle 0</text>
+<text class="av" x="206" y="237.0" text-anchor="middle" font-size="14">0</text>
+<text class="av" x="182" y="237.0" text-anchor="middle" font-size="14">2</text>
+<text class="av" x="206" y="327.0" text-anchor="middle" font-size="14">3</text>
+<text class="av" x="182" y="327.0" text-anchor="middle" font-size="14">1</text>
+<text class="av" x="158" y="327.0" text-anchor="middle" font-size="14">1</text>
+<text class="av" x="182" y="417.0" text-anchor="middle" font-size="14">2</text>
+<text class="av" x="158" y="417.0" text-anchor="middle" font-size="14">2</text>
+<text class="av" x="134" y="417.0" text-anchor="middle" font-size="14">1</text>
+<text class="bv" x="262.0" y="182" text-anchor="middle" font-size="14">1</text>
+<text class="bv" x="262.0" y="158" text-anchor="middle" font-size="14">1</text>
+<text class="bv" x="352.0" y="182" text-anchor="middle" font-size="14">1</text>
+<text class="bv" x="352.0" y="158" text-anchor="middle" font-size="14">3</text>
+<text class="bv" x="352.0" y="134" text-anchor="middle" font-size="14">2</text>
+<text class="bv" x="442.0" y="158" text-anchor="middle" font-size="14">1</text>
+<text class="bv" x="442.0" y="134" text-anchor="middle" font-size="14">0</text>
+<text class="bv" x="442.0" y="110" text-anchor="middle" font-size="14">2</text>
+<rect class="on" x="230" y="200" width="64" height="64" rx="8"/>
+<text class="av" x="239" y="237.0" text-anchor="middle" font-size="12">1</text>
+<text class="bv" x="262.0" y="214" text-anchor="middle" font-size="12">2</text>
+<text class="acc" x="266.0" y="239.0" text-anchor="middle" font-size="18">2</text>
+<rect class="pe" x="320" y="200" width="64" height="64" rx="8"/>
+<text class="acc" x="356.0" y="239.0" text-anchor="middle" font-size="18">0</text>
+<rect class="pe" x="410" y="200" width="64" height="64" rx="8"/>
+<text class="acc" x="446.0" y="239.0" text-anchor="middle" font-size="18">0</text>
+<rect class="pe" x="230" y="290" width="64" height="64" rx="8"/>
+<text class="acc" x="266.0" y="329.0" text-anchor="middle" font-size="18">0</text>
+<rect class="pe" x="320" y="290" width="64" height="64" rx="8"/>
+<text class="acc" x="356.0" y="329.0" text-anchor="middle" font-size="18">0</text>
+<rect class="pe" x="410" y="290" width="64" height="64" rx="8"/>
+<text class="acc" x="446.0" y="329.0" text-anchor="middle" font-size="18">0</text>
+<rect class="pe" x="230" y="380" width="64" height="64" rx="8"/>
+<text class="acc" x="266.0" y="419.0" text-anchor="middle" font-size="18">0</text>
+<rect class="pe" x="320" y="380" width="64" height="64" rx="8"/>
+<text class="acc" x="356.0" y="419.0" text-anchor="middle" font-size="18">0</text>
+<rect class="pe" x="410" y="380" width="64" height="64" rx="8"/>
+<text class="acc" x="446.0" y="419.0" text-anchor="middle" font-size="18">0</text>
+</g>
+<g class="f f1">
+<text class="t" x="280.0" y="500" text-anchor="middle" font-size="14">cycle 1</text>
+<text class="av" x="206" y="237.0" text-anchor="middle" font-size="14">2</text>
+<text class="av" x="206" y="327.0" text-anchor="middle" font-size="14">1</text>
+<text class="av" x="182" y="327.0" text-anchor="middle" font-size="14">1</text>
+<text class="av" x="206" y="417.0" text-anchor="middle" font-size="14">2</text>
+<text class="av" x="182" y="417.0" text-anchor="middle" font-size="14">2</text>
+<text class="av" x="158" y="417.0" text-anchor="middle" font-size="14">1</text>
+<text class="bv" x="262.0" y="182" text-anchor="middle" font-size="14">1</text>
+<text class="bv" x="352.0" y="182" text-anchor="middle" font-size="14">3</text>
+<text class="bv" x="352.0" y="158" text-anchor="middle" font-size="14">2</text>
+<text class="bv" x="442.0" y="182" text-anchor="middle" font-size="14">1</text>
+<text class="bv" x="442.0" y="158" text-anchor="middle" font-size="14">0</text>
+<text class="bv" x="442.0" y="134" text-anchor="middle" font-size="14">2</text>
+<rect class="off" x="230" y="200" width="64" height="64" rx="8"/>
+<text class="av" x="239" y="237.0" text-anchor="middle" font-size="12">0</text>
+<text class="bv" x="262.0" y="214" text-anchor="middle" font-size="12">1</text>
+<text class="m" x="262.0" y="257" text-anchor="middle" font-size="9">skip</text>
+<text class="acc" x="266.0" y="239.0" text-anchor="middle" font-size="18">2</text>
+<rect class="on" x="320" y="200" width="64" height="64" rx="8"/>
+<text class="av" x="329" y="237.0" text-anchor="middle" font-size="12">1</text>
+<text class="bv" x="352.0" y="214" text-anchor="middle" font-size="12">1</text>
+<text class="acc" x="356.0" y="239.0" text-anchor="middle" font-size="18">1</text>
+<rect class="pe" x="410" y="200" width="64" height="64" rx="8"/>
+<text class="acc" x="446.0" y="239.0" text-anchor="middle" font-size="18">0</text>
+<rect class="on" x="230" y="290" width="64" height="64" rx="8"/>
+<text class="av" x="239" y="327.0" text-anchor="middle" font-size="12">3</text>
+<text class="bv" x="262.0" y="304" text-anchor="middle" font-size="12">2</text>
+<text class="acc" x="266.0" y="329.0" text-anchor="middle" font-size="18">6</text>
+<rect class="pe" x="320" y="290" width="64" height="64" rx="8"/>
+<text class="acc" x="356.0" y="329.0" text-anchor="middle" font-size="18">0</text>
+<rect class="pe" x="410" y="290" width="64" height="64" rx="8"/>
+<text class="acc" x="446.0" y="329.0" text-anchor="middle" font-size="18">0</text>
+<rect class="pe" x="230" y="380" width="64" height="64" rx="8"/>
+<text class="acc" x="266.0" y="419.0" text-anchor="middle" font-size="18">0</text>
+<rect class="pe" x="320" y="380" width="64" height="64" rx="8"/>
+<text class="acc" x="356.0" y="419.0" text-anchor="middle" font-size="18">0</text>
+<rect class="pe" x="410" y="380" width="64" height="64" rx="8"/>
+<text class="acc" x="446.0" y="419.0" text-anchor="middle" font-size="18">0</text>
+</g>
+<g class="f f2">
+<text class="t" x="280.0" y="500" text-anchor="middle" font-size="14">cycle 2</text>
+<text class="av" x="206" y="327.0" text-anchor="middle" font-size="14">1</text>
+<text class="av" x="206" y="417.0" text-anchor="middle" font-size="14">2</text>
+<text class="av" x="182" y="417.0" text-anchor="middle" font-size="14">1</text>
+<text class="bv" x="352.0" y="182" text-anchor="middle" font-size="14">2</text>
+<text class="bv" x="442.0" y="182" text-anchor="middle" font-size="14">0</text>
+<text class="bv" x="442.0" y="158" text-anchor="middle" font-size="14">2</text>
+<rect class="on" x="230" y="200" width="64" height="64" rx="8"/>
+<text class="av" x="239" y="237.0" text-anchor="middle" font-size="12">2</text>
+<text class="bv" x="262.0" y="214" text-anchor="middle" font-size="12">1</text>
+<text class="acc" x="266.0" y="239.0" text-anchor="middle" font-size="18">4</text>
+<rect class="off" x="320" y="200" width="64" height="64" rx="8"/>
+<text class="av" x="329" y="237.0" text-anchor="middle" font-size="12">0</text>
+<text class="bv" x="352.0" y="214" text-anchor="middle" font-size="12">3</text>
+<text class="m" x="352.0" y="257" text-anchor="middle" font-size="9">skip</text>
+<text class="acc" x="356.0" y="239.0" text-anchor="middle" font-size="18">1</text>
+<rect class="on" x="410" y="200" width="64" height="64" rx="8"/>
+<text class="av" x="419" y="237.0" text-anchor="middle" font-size="12">1</text>
+<text class="bv" x="442.0" y="214" text-anchor="middle" font-size="12">1</text>
+<text class="acc" x="446.0" y="239.0" text-anchor="middle" font-size="18">1</text>
+<rect class="on" x="230" y="290" width="64" height="64" rx="8"/>
+<text class="av" x="239" y="327.0" text-anchor="middle" font-size="12">1</text>
+<text class="bv" x="262.0" y="304" text-anchor="middle" font-size="12">1</text>
+<text class="acc" x="266.0" y="329.0" text-anchor="middle" font-size="18">7</text>
+<rect class="on" x="320" y="290" width="64" height="64" rx="8"/>
+<text class="av" x="329" y="327.0" text-anchor="middle" font-size="12">3</text>
+<text class="bv" x="352.0" y="304" text-anchor="middle" font-size="12">1</text>
+<text class="acc" x="356.0" y="329.0" text-anchor="middle" font-size="18">3</text>
+<rect class="pe" x="410" y="290" width="64" height="64" rx="8"/>
+<text class="acc" x="446.0" y="329.0" text-anchor="middle" font-size="18">0</text>
+<rect class="on" x="230" y="380" width="64" height="64" rx="8"/>
+<text class="av" x="239" y="417.0" text-anchor="middle" font-size="12">2</text>
+<text class="bv" x="262.0" y="394" text-anchor="middle" font-size="12">2</text>
+<text class="acc" x="266.0" y="419.0" text-anchor="middle" font-size="18">4</text>
+<rect class="pe" x="320" y="380" width="64" height="64" rx="8"/>
+<text class="acc" x="356.0" y="419.0" text-anchor="middle" font-size="18">0</text>
+<rect class="pe" x="410" y="380" width="64" height="64" rx="8"/>
+<text class="acc" x="446.0" y="419.0" text-anchor="middle" font-size="18">0</text>
+</g>
+<g class="f f3">
+<text class="t" x="280.0" y="500" text-anchor="middle" font-size="14">cycle 3</text>
+<text class="av" x="206" y="417.0" text-anchor="middle" font-size="14">1</text>
+<text class="bv" x="442.0" y="182" text-anchor="middle" font-size="14">2</text>
+<rect class="pe" x="230" y="200" width="64" height="64" rx="8"/>
+<text class="acc" x="266.0" y="239.0" text-anchor="middle" font-size="18">4</text>
+<rect class="on" x="320" y="200" width="64" height="64" rx="8"/>
+<text class="av" x="329" y="237.0" text-anchor="middle" font-size="12">2</text>
+<text class="bv" x="352.0" y="214" text-anchor="middle" font-size="12">2</text>
+<text class="acc" x="356.0" y="239.0" text-anchor="middle" font-size="18">5</text>
+<rect class="off" x="410" y="200" width="64" height="64" rx="8"/>
+<text class="av" x="419" y="237.0" text-anchor="middle" font-size="12">0</text>
+<text class="bv" x="442.0" y="214" text-anchor="middle" font-size="12">0</text>
+<text class="m" x="442.0" y="257" text-anchor="middle" font-size="9">skip</text>
+<text class="acc" x="446.0" y="239.0" text-anchor="middle" font-size="18">1</text>
+<rect class="on" x="230" y="290" width="64" height="64" rx="8"/>
+<text class="av" x="239" y="327.0" text-anchor="middle" font-size="12">1</text>
+<text class="bv" x="262.0" y="304" text-anchor="middle" font-size="12">1</text>
+<text class="acc" x="266.0" y="329.0" text-anchor="middle" font-size="18">8</text>
+<rect class="on" x="320" y="290" width="64" height="64" rx="8"/>
+<text class="av" x="329" y="327.0" text-anchor="middle" font-size="12">1</text>
+<text class="bv" x="352.0" y="304" text-anchor="middle" font-size="12">3</text>
+<text class="acc" x="356.0" y="329.0" text-anchor="middle" font-size="18">6</text>
+<rect class="on" x="410" y="290" width="64" height="64" rx="8"/>
+<text class="av" x="419" y="327.0" text-anchor="middle" font-size="12">3</text>
+<text class="bv" x="442.0" y="304" text-anchor="middle" font-size="12">1</text>
+<text class="acc" x="446.0" y="329.0" text-anchor="middle" font-size="18">3</text>
+<rect class="on" x="230" y="380" width="64" height="64" rx="8"/>
+<text class="av" x="239" y="417.0" text-anchor="middle" font-size="12">2</text>
+<text class="bv" x="262.0" y="394" text-anchor="middle" font-size="12">1</text>
+<text class="acc" x="266.0" y="419.0" text-anchor="middle" font-size="18">6</text>
+<rect class="on" x="320" y="380" width="64" height="64" rx="8"/>
+<text class="av" x="329" y="417.0" text-anchor="middle" font-size="12">2</text>
+<text class="bv" x="352.0" y="394" text-anchor="middle" font-size="12">1</text>
+<text class="acc" x="356.0" y="419.0" text-anchor="middle" font-size="18">2</text>
+<rect class="pe" x="410" y="380" width="64" height="64" rx="8"/>
+<text class="acc" x="446.0" y="419.0" text-anchor="middle" font-size="18">0</text>
+</g>
+<g class="f f4">
+<text class="t" x="280.0" y="500" text-anchor="middle" font-size="14">cycle 4</text>
+<rect class="pe" x="230" y="200" width="64" height="64" rx="8"/>
+<text class="acc" x="266.0" y="239.0" text-anchor="middle" font-size="18">4</text>
+<rect class="pe" x="320" y="200" width="64" height="64" rx="8"/>
+<text class="acc" x="356.0" y="239.0" text-anchor="middle" font-size="18">5</text>
+<rect class="on" x="410" y="200" width="64" height="64" rx="8"/>
+<text class="av" x="419" y="237.0" text-anchor="middle" font-size="12">2</text>
+<text class="bv" x="442.0" y="214" text-anchor="middle" font-size="12">2</text>
+<text class="acc" x="446.0" y="239.0" text-anchor="middle" font-size="18">5</text>
+<rect class="pe" x="230" y="290" width="64" height="64" rx="8"/>
+<text class="acc" x="266.0" y="329.0" text-anchor="middle" font-size="18">8</text>
+<rect class="on" x="320" y="290" width="64" height="64" rx="8"/>
+<text class="av" x="329" y="327.0" text-anchor="middle" font-size="12">1</text>
+<text class="bv" x="352.0" y="304" text-anchor="middle" font-size="12">2</text>
+<text class="acc" x="356.0" y="329.0" text-anchor="middle" font-size="18">8</text>
+<rect class="off" x="410" y="290" width="64" height="64" rx="8"/>
+<text class="av" x="419" y="327.0" text-anchor="middle" font-size="12">1</text>
+<text class="bv" x="442.0" y="304" text-anchor="middle" font-size="12">0</text>
+<text class="m" x="442.0" y="347" text-anchor="middle" font-size="9">skip</text>
+<text class="acc" x="446.0" y="329.0" text-anchor="middle" font-size="18">3</text>
+<rect class="on" x="230" y="380" width="64" height="64" rx="8"/>
+<text class="av" x="239" y="417.0" text-anchor="middle" font-size="12">1</text>
+<text class="bv" x="262.0" y="394" text-anchor="middle" font-size="12">1</text>
+<text class="acc" x="266.0" y="419.0" text-anchor="middle" font-size="18">7</text>
+<rect class="on" x="320" y="380" width="64" height="64" rx="8"/>
+<text class="av" x="329" y="417.0" text-anchor="middle" font-size="12">2</text>
+<text class="bv" x="352.0" y="394" text-anchor="middle" font-size="12">3</text>
+<text class="acc" x="356.0" y="419.0" text-anchor="middle" font-size="18">8</text>
+<rect class="on" x="410" y="380" width="64" height="64" rx="8"/>
+<text class="av" x="419" y="417.0" text-anchor="middle" font-size="12">2</text>
+<text class="bv" x="442.0" y="394" text-anchor="middle" font-size="12">1</text>
+<text class="acc" x="446.0" y="419.0" text-anchor="middle" font-size="18">2</text>
+</g>
+<g class="f f5">
+<text class="t" x="280.0" y="500" text-anchor="middle" font-size="14">cycle 5</text>
+<rect class="pe" x="230" y="200" width="64" height="64" rx="8"/>
+<text class="acc" x="266.0" y="239.0" text-anchor="middle" font-size="18">4</text>
+<rect class="pe" x="320" y="200" width="64" height="64" rx="8"/>
+<text class="acc" x="356.0" y="239.0" text-anchor="middle" font-size="18">5</text>
+<rect class="pe" x="410" y="200" width="64" height="64" rx="8"/>
+<text class="acc" x="446.0" y="239.0" text-anchor="middle" font-size="18">5</text>
+<rect class="pe" x="230" y="290" width="64" height="64" rx="8"/>
+<text class="acc" x="266.0" y="329.0" text-anchor="middle" font-size="18">8</text>
+<rect class="pe" x="320" y="290" width="64" height="64" rx="8"/>
+<text class="acc" x="356.0" y="329.0" text-anchor="middle" font-size="18">8</text>
+<rect class="on" x="410" y="290" width="64" height="64" rx="8"/>
+<text class="av" x="419" y="327.0" text-anchor="middle" font-size="12">1</text>
+<text class="bv" x="442.0" y="304" text-anchor="middle" font-size="12">2</text>
+<text class="acc" x="446.0" y="329.0" text-anchor="middle" font-size="18">5</text>
+<rect class="pe" x="230" y="380" width="64" height="64" rx="8"/>
+<text class="acc" x="266.0" y="419.0" text-anchor="middle" font-size="18">7</text>
+<rect class="on" x="320" y="380" width="64" height="64" rx="8"/>
+<text class="av" x="329" y="417.0" text-anchor="middle" font-size="12">1</text>
+<text class="bv" x="352.0" y="394" text-anchor="middle" font-size="12">2</text>
+<text class="acc" x="356.0" y="419.0" text-anchor="middle" font-size="18">10</text>
+<rect class="off" x="410" y="380" width="64" height="64" rx="8"/>
+<text class="av" x="419" y="417.0" text-anchor="middle" font-size="12">2</text>
+<text class="bv" x="442.0" y="394" text-anchor="middle" font-size="12">0</text>
+<text class="m" x="442.0" y="437" text-anchor="middle" font-size="9">skip</text>
+<text class="acc" x="446.0" y="419.0" text-anchor="middle" font-size="18">2</text>
+</g>
+<g class="f f6">
+<text class="t" x="280.0" y="500" text-anchor="middle" font-size="14">cycle 6</text>
+<rect class="pe" x="230" y="200" width="64" height="64" rx="8"/>
+<text class="acc" x="266.0" y="239.0" text-anchor="middle" font-size="18">4</text>
+<rect class="pe" x="320" y="200" width="64" height="64" rx="8"/>
+<text class="acc" x="356.0" y="239.0" text-anchor="middle" font-size="18">5</text>
+<rect class="pe" x="410" y="200" width="64" height="64" rx="8"/>
+<text class="acc" x="446.0" y="239.0" text-anchor="middle" font-size="18">5</text>
+<rect class="pe" x="230" y="290" width="64" height="64" rx="8"/>
+<text class="acc" x="266.0" y="329.0" text-anchor="middle" font-size="18">8</text>
+<rect class="pe" x="320" y="290" width="64" height="64" rx="8"/>
+<text class="acc" x="356.0" y="329.0" text-anchor="middle" font-size="18">8</text>
+<rect class="pe" x="410" y="290" width="64" height="64" rx="8"/>
+<text class="acc" x="446.0" y="329.0" text-anchor="middle" font-size="18">5</text>
+<rect class="pe" x="230" y="380" width="64" height="64" rx="8"/>
+<text class="acc" x="266.0" y="419.0" text-anchor="middle" font-size="18">7</text>
+<rect class="pe" x="320" y="380" width="64" height="64" rx="8"/>
+<text class="acc" x="356.0" y="419.0" text-anchor="middle" font-size="18">10</text>
+<rect class="on" x="410" y="380" width="64" height="64" rx="8"/>
+<text class="av" x="419" y="417.0" text-anchor="middle" font-size="12">1</text>
+<text class="bv" x="442.0" y="394" text-anchor="middle" font-size="12">2</text>
+<text class="acc" x="446.0" y="419.0" text-anchor="middle" font-size="18">4</text>
+</g>
+<g class="f f7">
+<text class="t" x="280.0" y="500" text-anchor="middle" font-size="14">done: C is held in the PEs</text>
+<rect class="on" x="230" y="200" width="64" height="64" rx="8"/>
+<text class="acc" x="262.0" y="239.0" text-anchor="middle" font-size="20">4</text>
+<rect class="on" x="320" y="200" width="64" height="64" rx="8"/>
+<text class="acc" x="352.0" y="239.0" text-anchor="middle" font-size="20">5</text>
+<rect class="on" x="410" y="200" width="64" height="64" rx="8"/>
+<text class="acc" x="442.0" y="239.0" text-anchor="middle" font-size="20">5</text>
+<rect class="on" x="230" y="290" width="64" height="64" rx="8"/>
+<text class="acc" x="262.0" y="329.0" text-anchor="middle" font-size="20">8</text>
+<rect class="on" x="320" y="290" width="64" height="64" rx="8"/>
+<text class="acc" x="352.0" y="329.0" text-anchor="middle" font-size="20">8</text>
+<rect class="on" x="410" y="290" width="64" height="64" rx="8"/>
+<text class="acc" x="442.0" y="329.0" text-anchor="middle" font-size="20">5</text>
+<rect class="on" x="230" y="380" width="64" height="64" rx="8"/>
+<text class="acc" x="262.0" y="419.0" text-anchor="middle" font-size="20">7</text>
+<rect class="on" x="320" y="380" width="64" height="64" rx="8"/>
+<text class="acc" x="352.0" y="419.0" text-anchor="middle" font-size="20">10</text>
+<rect class="on" x="410" y="380" width="64" height="64" rx="8"/>
+<text class="acc" x="442.0" y="419.0" text-anchor="middle" font-size="20">4</text>
+</g>
+<text class="av" x="60" y="537" font-size="14">■</text>
+<text class="m" x="80" y="536" font-size="12">A operand</text>
+<text class="bv" x="180" y="537" font-size="14">■</text>
+<text class="m" x="200" y="536" font-size="12">B operand</text>
+<rect class="on" x="300" y="525" width="13" height="13" rx="3"/>
+<text class="m" x="320" y="536" font-size="12">MAC</text>
+<rect class="off" x="420" y="525" width="13" height="13" rx="3"/>
+<text class="m" x="440" y="536" font-size="12">zero: gated</text>
+</svg>
