@@ -5,9 +5,27 @@ A SystemVerilog RTL implementation of a **2×2 output-stationary systolic array*
 ### Dataflow Visualization
 
 $$
-A = \begin{bmatrix} 1 & 0 & 2 \\ 3 & 1 & 1 \\ 2 & 2 & 1 \end{bmatrix}, \quad
-B = \begin{bmatrix} 2 & 1 & 1 \\ 1 & 3 & 0 \\ 1 & 2 & 2 \end{bmatrix}, \quad
-C = A \times B = \begin{bmatrix} 4 & 5 & 5 \\ 8 & 8 & 5 \\ 7 & 10 & 4 \end{bmatrix}
+A = \begin{bmatrix}
+1 & 0 & 2 \\
+3 & 1 & 1 \\
+2 & 2 & 1
+\end{bmatrix}
+\qquad
+B = \begin{bmatrix}
+2 & 1 & 1 \\
+1 & 3 & 0 \\
+1 & 2 & 2
+\end{bmatrix}
+
+$$
+
+$$
+C = A \times B =
+\begin{bmatrix}
+4 & 5 & 5 \\
+8 & 8 & 5 \\
+7 & 10 & 4
+\end{bmatrix}
 $$
 
 The three matrices show side by side with brackets. Other viewers, like some editors or npm, may not render LaTeX. If you need it to look right everywhere, this plain code-block version works anywhere:
