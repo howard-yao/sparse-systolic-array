@@ -10,7 +10,8 @@ A = \begin{bmatrix}
 3 & 1 & 1 \\
 2 & 2 & 1
 \end{bmatrix}
-\qquad
+
+
 B = \begin{bmatrix}
 2 & 1 & 1 \\
 1 & 3 & 0 \\
