@@ -1,106 +1,80 @@
 # Sparse-Aware Systolic Array Accelerator
 
-An independent, noncommercial RTL-design + verification portfolio project.
+A SystemVerilog RTL implementation of a **2×2 output-stationary systolic array** for matrix multiplication, using signed **INT8 operands** and **INT32 accumulation**. The project explores zero-operand suppression and cycle-accurate verification of the accelerator datapath.
 
-> **Status: Work in Progress (WIP)**
+### Dataflow Visualization
 
-An RTL implementation of a parameterized systolic array for matrix multiplication, exploring sparse computation, operand gating, and hardware efficiency.
+$$
+A = \begin{bmatrix} 1 & 0 & 2 \\ 3 & 1 & 1 \\ 2 & 2 & 1 \end{bmatrix}, \quad
+B = \begin{bmatrix} 2 & 1 & 1 \\ 1 & 3 & 0 \\ 1 & 2 & 2 \end{bmatrix}, \quad
+C = A \times B = \begin{bmatrix} 4 & 5 & 5 \\ 8 & 8 & 5 \\ 7 & 10 & 4 \end{bmatrix}
+$$
 
-## Overview
+The three matrices show side by side with brackets. Other viewers, like some editors or npm, may not render LaTeX. If you need it to look right everywhere, this plain code-block version works anywhere:
 
-This project explores the design of a systolic array composed of multiply-accumulate (MAC) Processing Elements (PEs).
+<p align="center">
+  <img
+    src="docs/systolic-array.svg"
+    alt="2×2 output-stationary systolic array"
+    width="580"
+  />
+</p>
 
-The architecture uses an output-stationary dataflow, where operands propagate between neighboring PEs while partial sums are accumulated locally.
-
-A primary focus is investigating how sparsity-aware optimizations can reduce unnecessary switching activity and improve energy efficiency.
+<p align="center">
+  <sub>
+    <em>
+      Output-stationary dataflow: A propagates horizontally,
+      B vertically, and partial sums accumulate locally.
+    </em>
+  </sub>
+</p>
 
 ## Architecture
 
-Each PE supports the following design concepts:
+- **Parameterized MAC processing element:** Configurable operand and accumulator widths, with local accumulation and operand forwarding.
+- **2×2 systolic array:** Matrix A propagates horizontally and matrix B vertically; each PE retains its partial sum.
+- **Pipeline control:** Validity propagation, global `step`/stall control, synchronous reset, and accumulator clearing.
+- **Sparse mode:** Isolates multiplier operands and skips accumulator updates for zero products while preserving results and execution timing. Power savings have not yet been measured.
 
-- **Multiply-Accumulate (MAC):** Signed multiplication with a wider accumulator.
-- **Operand Forwarding:** A operands propagate horizontally and B operands vertically.
-- **Validity Propagation:** Valid signals distinguish meaningful operands from pipeline bubbles.
-- **Global Step Control:** Enables synchronized pipeline advancement and stalling.
-- **Sparse Operand Gating:** Forces local multiplier operands to zero when either input is zero, without modifying forwarded data.
+## Verification
 
-## Development Roadmap
+- **PE-level SystemVerilog testbench:** Self-checking reference model covering signed arithmetic, reset, stalls, validity, and dense/sparse equivalence (12 directed cases + 1,000 randomized cycles).
+- **Array-level SystemVerilog testbench:** Checks forwarding, stalls, and 2×2 matrix multiplication, including 100 randomized matrix pairs in both dense and sparse modes.
+- **UVM environment (in development):** Randomized GEMM transactions, driver, monitor, and reference-model scoreboard. Not yet integrated into the default Makefile flow.
 
-- [ ] Complete parameterized MAC PE implementation
-- [ ] Implement PE-level functional testbench
-- [ ] Build a 2×2 systolic array
-- [ ] Extend to configurable array dimensions
-- [ ] Implement input skewing and matrix multiplication scheduling
-- [ ] Verify dense and sparse workloads
-- [ ] Evaluate switching activity and power implications
-- [ ] Explore performance and area tradeoffs
+## Build and Run
 
-## Tools
-
-- SystemVerilog
-- RTL simulation and verification
-- Waveform analysis
-
-**Milestone 1 (In Progress):** signed INT8 -> INT32 output-stationary multiply-accumulate
-processing element (PE), with operand forwarding, reset/clear, global stall,
-dense and zero-suppressed modes, and a self-checking SV testbench.
-
-## Prerequisites
-
-Use a WSL2 Linux terminal or native Linux installation with Verilator 5.x,
-GNU Make, and a C++ compiler. The PE-only milestone does not require UVM.
-For future full UVM work, prefer Verilator >= 5.052 and check its UVM limitations.
-
-On Ubuntu/WSL, a baseline install may be:
+Requires **Verilator 5.x**, **GNU Make**, and a **C++ compiler**.
 
 ```bash
-sudo apt update
-sudo apt install -y verilator build-essential make git
-verilator --version
-```
-
-Distribution packages can lag recent releases. Don't assume an apt version
-is new enough for UVM; we will address upgrading separately at milestone 5.
-
-## Quick start
-
-```bash
+# Lint and run the processing-element testbench
 make lint
 make test
+
+# Optional: generate build/pe_wave.vcd
 make wave
 ```
 
-- make lint: Checks RTL for coding mistakes and suspicious constructs
-- make test: Compiles and simulates the PE with its testbench
-- make wave: Simulates the PE and generates waveform
-- make clean: Delete generated build files
+Run the 2×2 array testbench separately:
 
-Expected successful simulation conclusion:
-`ALL PE TESTS PASSED: 1012 cycles checked`
+```bash
+verilator --binary --timing --assert -Wall -Wno-fatal \
+  --top-module tb_systolic_2x2 --Mdir build/array \
+  rtl/mac_pe.sv rtl/systolic_2x2.sv tb/tb_systolic_2x2.sv
+./build/array/Vtb_systolic_2x2
+```
 
-The `wave` target creates `build/pe_wave.vcd`; inspect it with GTKWave
-(or another VCD-compatible waveform viewer).
+Use `make clean` to remove generated build files.
 
-The testbench checks the reference accumulated result and forwarded operands
-of **both** the dense and the sparse modes after every clock edge.
-It includes a dozen directed cases plus 1000 deterministic random cycles.
-This starter has NOT been simulator-tested in its creation environment because
-Verilator was not installed there. Please run it locally and report any
-simulator-version-specific warnings or errors before moving forward.
+## Repository Structure
 
-## Directory structure
+```text
+rtl/                  Synthesizable MAC PE and 2×2 array
+tb/                   Self-checking SystemVerilog testbenches
+verification/uvm/     UVM verification components
+formal/               Formal verification work
+scripts/              Utility scripts
+Makefile              PE lint, simulation, and waveform targets
+```
 
-- `rtl/`: synthesizable hardware.
-- `tb/`: lightweight PE/array tests.
-- `verification/uvm/`: future UVM environment.
-- `formal/`: future formal properties and proof harnesses.
-- `docs/spec.md`: requirements and intended invariants.
-- `docs/roadmap.md`: milestone checklist and sign-off criteria.
-
-## Scope of the sparse optimization
-
-Sparse mode isolates the multiplier operands when either input is zero, and
-avoids an accumulator register update. It preserves matrix results and
-fixed execution timing. This is zero suppression, **not** sparse-data
-compression or automatic cycle-count reduction. Any power benefit must be
-measured; it is not established just from the RTL.
+**Current scope:** The PE is parameterized; the array is currently fixed at 2×2. Scalable arrays, formal sign-off, and measured power/area/performance comparisons remain future work.

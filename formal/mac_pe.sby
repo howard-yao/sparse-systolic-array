@@ -1,0 +1,23 @@
+[tasks]
+bmc
+prove
+cover
+
+[options]
+bmc: mode bmc
+bmc: depth 12
+prove: mode prove
+prove: depth 12
+cover: mode cover
+cover: depth 8
+
+[engines]
+smtbmc z3
+
+[script]
+read -formal -sv mac_pe.sv formal_mac_pe.sv
+prep -top formal_mac_pe
+
+[files]
+../rtl/mac_pe.sv
+formal_mac_pe.sv
