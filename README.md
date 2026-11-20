@@ -4,21 +4,21 @@ A SystemVerilog RTL implementation of a **2×2 output-stationary systolic array*
 
 ### Dataflow Visualization
 
-$$
-A = \begin{bmatrix}
+```math
+A =
+\begin{bmatrix}
 1 & 0 & 2 \\
 3 & 1 & 1 \\
 2 & 2 & 1
 \end{bmatrix}
-
-
-B = \begin{bmatrix}
+\qquad
+B =
+\begin{bmatrix}
 2 & 1 & 1 \\
 1 & 3 & 0 \\
 1 & 2 & 2
 \end{bmatrix}
-
-$$
+```
 
 $$
 C = A \times B =
